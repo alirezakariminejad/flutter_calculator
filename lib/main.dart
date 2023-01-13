@@ -14,6 +14,8 @@ class Application extends StatefulWidget {
 
 class _ApplicationState extends State<Application> {
   @override
+  var inputUser = '';
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -25,8 +27,22 @@ class _ApplicationState extends State<Application> {
             children: [
               Expanded(
                 flex: 3,
-                child: Container(
-                  color: backgroundGrayDark,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        inputUser,
+                        style: TextStyle(
+                          color: textGreen,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28.0,
+                        ),
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
@@ -51,6 +67,12 @@ class _ApplicationState extends State<Application> {
     );
   }
 
+  void buttonPressed(String text) {
+    setState(() {
+      inputUser += text;
+    });
+  }
+
   Widget getRowClaculator(
       String text1, String text2, String text3, String text4) {
     return Row(
@@ -65,7 +87,9 @@ class _ApplicationState extends State<Application> {
                 ),
               ),
               backgroundColor: getBackgroundColor(text1)),
-          onPressed: () {},
+          onPressed: () {
+            buttonPressed(text1);
+          },
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
@@ -85,7 +109,17 @@ class _ApplicationState extends State<Application> {
             ),
             backgroundColor: getBackgroundColor(text2),
           ),
-          onPressed: () {},
+          onPressed: () {
+            if (text2 == 'ce') {
+              setState(() {
+                if (inputUser.length > 0) {
+                  inputUser = inputUser.substring(0, inputUser.length - 1);
+                }
+              });
+            } else {
+              buttonPressed(text2);
+            }
+          },
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
@@ -105,7 +139,9 @@ class _ApplicationState extends State<Application> {
             ),
             backgroundColor: getBackgroundColor(text3),
           ),
-          onPressed: () {},
+          onPressed: () {
+            buttonPressed(text3);
+          },
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
@@ -125,7 +161,9 @@ class _ApplicationState extends State<Application> {
             ),
             backgroundColor: getBackgroundColor(text4),
           ),
-          onPressed: () {},
+          onPressed: () {
+            buttonPressed(text4);
+          },
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
