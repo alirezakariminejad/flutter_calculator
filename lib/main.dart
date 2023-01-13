@@ -21,25 +21,72 @@ class _ApplicationState extends State<Application> {
       home: Scaffold(
         backgroundColor: backgroundGrayDark,
         body: SafeArea(
-            child: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                height: 150.0,
-                color: backgroundGrayDark,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Container(
+                  color: backgroundGrayDark,
+                ),
               ),
-            ),
-            Expanded(
-              flex: 7,
-              child: Container(
-                height: 150.0,
-                color: backgroundGray,
+              Expanded(
+                flex: 7,
+                child: Container(
+                    color: backgroundGray,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        getRowClaculator(),
+                        getRowClaculator(),
+                        getRowClaculator(),
+                        getRowClaculator(),
+                      ],
+                    )),
               ),
-            ),
-          ],
-        )),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget getRowClaculator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            '1',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32.0, color: textGray),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            '2',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32.0, color: textGray),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            '3',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32.0, color: textGray),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(
+            '+',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32.0, color: textGray),
+          ),
+        ),
+      ],
     );
   }
 }
