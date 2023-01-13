@@ -57,50 +57,111 @@ class _ApplicationState extends State<Application> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         TextButton(
+          style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(
+                  width: 0.0,
+                  color: Colors.transparent,
+                ),
+              ),
+              backgroundColor: getBackgroundColor(text1)),
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
               text1,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 32.0, color: textGray),
+              style: TextStyle(fontSize: 32.0, color: getforgroundColor(text1)),
             ),
           ),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            shape: CircleBorder(
+              side: BorderSide(
+                width: 0.0,
+                color: Colors.transparent,
+              ),
+            ),
+            backgroundColor: getBackgroundColor(text2),
+          ),
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
               text2,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 32.0, color: textGray),
+              style: TextStyle(fontSize: 32.0, color: getforgroundColor(text2)),
             ),
           ),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            shape: CircleBorder(
+              side: BorderSide(
+                width: 0.0,
+                color: Colors.transparent,
+              ),
+            ),
+            backgroundColor: getBackgroundColor(text3),
+          ),
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
               text3,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 32.0, color: textGray),
+              style: TextStyle(fontSize: 32.0, color: getforgroundColor(text3)),
             ),
           ),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            shape: CircleBorder(
+              side: BorderSide(
+                width: 0.0,
+                color: Colors.transparent,
+              ),
+            ),
+            backgroundColor: getBackgroundColor(text4),
+          ),
           onPressed: () {},
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
               text4,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 32.0, color: textGray),
+              style: TextStyle(fontSize: 32.0, color: getforgroundColor(text4)),
             ),
           ),
         ),
       ],
     );
+  }
+
+  bool isOperator(String text) {
+    var listOperators = ['ac', 'ce', '%', '/', '*', '-', '+', '='];
+    for (var operator in listOperators) {
+      if (operator == text) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Color getBackgroundColor(String text) {
+    if (isOperator(text)) {
+      return backgroundGrayDark;
+    } else {
+      return backgroundGray;
+    }
+  }
+
+  Color getforgroundColor(String text) {
+    if (isOperator(text)) {
+      return textGreen;
+    } else {
+      return textGray;
+    }
   }
 }
