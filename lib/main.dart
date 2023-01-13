@@ -102,7 +102,14 @@ class _ApplicationState extends State<Application> {
               ),
               backgroundColor: getBackgroundColor(text1)),
           onPressed: () {
-            buttonPressed(text1);
+            if (text1 == 'ac') {
+              setState(() {
+                inputUser = '';
+                result = '0';
+              });
+            } else {
+              buttonPressed(text1);
+            }
           },
           child: Padding(
             padding: const EdgeInsets.all(3.0),
