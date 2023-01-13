@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   hexcolor: ^3.0.1
+  math_expressions: ^2.3.1
 
 
   # The following adds the Cupertino Icons font to your application.
