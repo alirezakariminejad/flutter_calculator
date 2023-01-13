@@ -36,10 +36,11 @@ class _ApplicationState extends State<Application> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        getRowClaculator(),
-                        getRowClaculator(),
-                        getRowClaculator(),
-                        getRowClaculator(),
+                        getRowClaculator('ac', 'ce', '%', '/'),
+                        getRowClaculator('7', '8', '9', '*'),
+                        getRowClaculator('4', '5', '6', '-'),
+                        getRowClaculator('1', '2', '3', '+'),
+                        getRowClaculator('00', '0', '.', '='),
                       ],
                     )),
               ),
@@ -50,40 +51,53 @@ class _ApplicationState extends State<Application> {
     );
   }
 
-  Widget getRowClaculator() {
+  Widget getRowClaculator(
+      String text1, String text2, String text3, String text4) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Text(
-            '1',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 32.0, color: textGray),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Text(
+              text1,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 32.0, color: textGray),
+            ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Text(
-            '2',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 32.0, color: textGray),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Text(
+              text2,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 32.0, color: textGray),
+            ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Text(
-            '3',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 32.0, color: textGray),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Text(
+              text3,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 32.0, color: textGray),
+            ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Text(
-            '+',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 32.0, color: textGray),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Text(
+              text4,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 32.0, color: textGray),
+            ),
           ),
         ),
       ],
