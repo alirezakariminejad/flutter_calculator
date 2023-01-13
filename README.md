@@ -1,6 +1,7 @@
 # flutter_calculator_application
 
 A new Flutter project.
+
 <img src="https://github.com/alirezakariminejad/flutter_calculator/blob/master/images/app_screenshot.png?raw=true" width="360" alt="app screenshot"/>
 
 
