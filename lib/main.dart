@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calculator_application/constants/constants.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const Application());
@@ -15,6 +16,7 @@ class Application extends StatefulWidget {
 class _ApplicationState extends State<Application> {
   @override
   var inputUser = '';
+  var result = '0';
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +40,18 @@ class _ApplicationState extends State<Application> {
                           color: textGreen,
                           fontWeight: FontWeight.bold,
                           fontSize: 28.0,
+                        ),
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        result,
+                        style: TextStyle(
+                          color: textGray,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 72.0,
                         ),
                         textAlign: TextAlign.end,
                       ),
@@ -162,6 +176,17 @@ class _ApplicationState extends State<Application> {
             backgroundColor: getBackgroundColor(text4),
           ),
           onPressed: () {
+            if (text4 == '=') {
+              Parser parser = new Parser();
+              Expression expression = parser.parse(inputUser);
+              ContextModel contextModel = ContextModel();
+              double eval =
+                  expression.evaluate(EvaluationType.REAL, contextModel);
+
+              setState(() {
+                result = eval.toString();
+              });
+            } else {}
             buttonPressed(text4);
           },
           child: Padding(
